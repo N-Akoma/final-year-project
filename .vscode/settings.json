@@ -1,0 +1,7 @@
+{
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "html.format.wrapLineLength": 750,
+    "editor.formatOnType": true,
+    "editor.defaultFormatter": "vscode.git"
+}
