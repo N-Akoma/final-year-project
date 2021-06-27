@@ -3,11 +3,65 @@ html,body{
   height: 100%;
 }
 
-.nav-text{
+.welcome-h{
+   position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -150px;
+  margin-left: -150px;
+}
+
+.welcome-h h2{
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 'bolder'
+}
+
+.welcome-h form{
+    display: flex;
+  background: white;
+  border-radius: 150px;
+  padding: 2px;
+  margin-right: 2px;
+  }
+
+.welcome-h input[type=text]{
+  width: 100%;
+  /* padding: 10px 10px; */
+  /* margin: 8px 0; */
+  margin: 5px;
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
+.welcome-h input[type=submit]{
+  width: 35%;
+  /* padding: 10px 20px; */
+  font-size: 15px;
+  text-align: center;
+  /* margin: 8px 0; */
+  /* margin: 5px; */
+  margin-left: 15px;
+  color: white;
+  background: #FD8342;
+  border: none
+ 
+}
+
+.input-border{
+  border-radius: 30px;
+}
+
+
+/* .welcome-h p{
+  line-height: 1.0
+} */
+
+/* .nav-text{
   color: coral;
 }
 
 h1.nav-text{
    font-family: Verdana, Geneva, Tahoma, sans-serif;
    font-style: normal;
-}
+} */
