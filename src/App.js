@@ -1,82 +1,62 @@
-import React from 'react';
-import { Switch, Route,Link } from 'react-router-dom'
+import {useReducer} from 'react';
 import './App.css';
-import { UserProvider } from './Components/MyContext'
-import BudgetAmount from './Components/BudgetAmount'
+import Home from './pages/home';
+import DashBoard from './pages/dashboard';
+ 
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-	  this.state = {
-		 budget: {
-        budgetValue: '',
-        expenditures: { expenses: '', amount: ''}
-      }
-		//   value: ''
-	};
+const App = (props) => {
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-	};
+	const initialState = {
+		totalAmount: 0,
+		expenses: []
+	}
 
-//   const [todos, setTodos] = useState({});
-	handleChange(event) {
-		const NewBudget = { ...this.state.budget }
-		this.setState({
-			NewBudget, budgetValue: event.target.value
+	const reducer = (state, { type, payLoad }) => {
+		switch (type) {
+			case "ADD_BUDGET_AMOUNT":
+
+				return { ...state, totalAmount: payLoad }
+			
+			
+			case "ADD_EXPENSES":
+				let checkSum = state.expenses.reduce(function (prev, current) {
+      			return prev + current.amount
+    			},0)
+				return { ...state, expenses: [...state.expenses, payLoad] }
+				
+			case "DELETE_EXPENSE_BY_ID":
+
+				let newExpeArr = state.expenses.filter(val => val.id !== payLoad)
+
+				return { ...state, expenses: newExpeArr }
+ 		
+			default: return state
+			
+		}
+	}
+
+	const [state, dispatch] = useReducer(reducer, initialState)
+
+	const getBudgetAmountFromHome = (amount) => {
+		console.log(amount)
+		//send amount to store
+		dispatch({
+			type: "ADD_BUDGET_AMOUNT",
+			payLoad: amount
 		})
-  }
-
-  handleSubmit(event) {
-    alert('An amount was submitted: ' + this.state.budgetValue);
-    event.preventDefault();
-	};
-
-  render() {
-	  return (
-				<UserProvider value={this.state.budget}>
-			   <div className='text-center text-light welcome-h'>
-				<h2 className='h1 font-weight-bolder'>Saving Money</h2>
-				<p className='lead'>A tool to manage your finances <br /> Full budget control</p>
-			<form className='home-f' onSubmit={this.handleSubmit}>
-        <label>
-			<input className='input-border' placeholder='Enter weekly income'
-						type="text" value={this.state.value} onChange={this.handleChange} />
-        </label>
-						  <Link to='/budgetAmount'>
-					  <input className='input-border' type="submit" value="Get started" />
-						  </Link>
-      </form>				  
-	</div>
-			  </UserProvider>
-    );
-  }
+	}
+ 
+	return (
+		<>
+		{
+			state.totalAmount !== 0 ?
+				<DashBoard state={state} dispatch={dispatch} />
+				: 
+				<Home getBudgetAmountFromHome={getBudgetAmountFromHome} />
+		}
+			
+			</>
+	)
 }
 
-// class App extends Component {   
-// 	render() {
-// 		return (
-// 			<MyProvider>
-// 			<div className='text-center text-light welcome-h'>
-// 				<h2 className='h1 font-weight-bolder'>Saving Money</h2>
-// 				<p className='lead'>A tool to manage your finances <br /> Full budget control</p>
-// 					<BudgetInput/>
-// 			</div>
-// 			</MyProvider>
-
-// 		);
-// 	}
-// }
-
 export default App;
-
-function  ToApp() {
-		return (
-			<main>
-				<Switch>
-					<Route path='/' component={App} exact />
-					<Route path='/budgetAmount' component={BudgetAmount} />
-				</Switch>
-			</main>
-		)
-};
