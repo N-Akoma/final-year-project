@@ -1,5 +1,4 @@
 import {useReducer} from 'react';
-// import { Switch, Route,Link } from 'react-router-dom'
 import './App.css';
 import Home from './pages/home';
 import DashBoard from './pages/dashboard';
@@ -20,7 +19,9 @@ const App = (props) => {
 			
 			
 			case "ADD_EXPENSES":
-
+				let checkSum = state.expenses.reduce(function (prev, current) {
+      			return prev + current.amount
+    			},0)
 				return { ...state, expenses: [...state.expenses, payLoad] }
 				
 			case "DELETE_EXPENSE_BY_ID":

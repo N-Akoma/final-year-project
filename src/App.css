@@ -1,6 +1,7 @@
 html,body{
   background-color: rgba(31, 16, 36, 0.637);
   height: 100%;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
 .welcome-h{
@@ -17,30 +18,35 @@ html,body{
 }
 
 .welcome-h form{
-    display: flex;
+  display: flex;
   background: white;
   border-radius: 150px;
   padding: 2px;
   margin-right: 2px;
   }
 
-.welcome-h input[type=text]{
+  input {
+  color:white;
+  resize: none;
+  border-radius: 0%;
+
+}
+
+.welcome-h input[type=number]{
   width: 100%;
-  /* padding: 10px 10px; */
-  /* margin: 8px 0; */
   margin: 5px;
   border: none;
+  color: black;
   background-color: transparent;
   outline: none;
+  background: #FFFFFF;
+  border-radius: 50px;
 }
 
 .welcome-h input[type=submit]{
   width: 35%;
-  /* padding: 10px 20px; */
   font-size: 15px;
   text-align: center;
-  /* margin: 8px 0; */
-  /* margin: 5px; */
   margin-left: 15px;
   color: white;
   background: #FD8342;
@@ -52,16 +58,164 @@ html,body{
   border-radius: 30px;
 }
 
-
-/* .welcome-h p{
-  line-height: 1.0
-} */
-
-/* .nav-text{
-  color: coral;
+.headerName{
+  font-family: cursive;
+  font-style: italic;
+  font-size: larger;
+  font-weight: bolder;
+  color: #00ddeb;
+  padding-top: 15px;
 }
 
-h1.nav-text{
-   font-family: Verdana, Geneva, Tahoma, sans-serif;
-   font-style: normal;
-} */
+.income{
+width: 600px;
+height: 150px;
+background: #44394A;
+box-shadow: 0px 6px 20px 1px rgba(0, 0, 0, 0.06);
+border-radius: 20px
+}
+
+.income h2{
+  font-family: monospace;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: normal;
+  text-align: center;
+  color: #fd8342;
+}
+
+.income p{
+  color: #00ddeb;
+  font-family: monospace;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  text-align: center;
+}
+
+.expenses{
+width: 600px;
+height: 150px;
+background: #44394A;
+box-shadow: 0px 6px 20px 1px rgba(0, 0, 0, 0.06);
+border-radius: 20px
+}
+
+.expenses h2{
+  font-family: monospace;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: normal;
+  text-align: center;
+  color: #fd8342;
+}
+
+.expenses p{
+  color: #00ddeb;
+  font-family: monospace;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  text-align: center;
+}
+
+.form-info p{
+  color: #00ddeb;
+  font-family: monospace;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  text-align: center;
+}
+
+.expendies input[type='text']{
+width: 250px;
+height: 40px;
+background: #44394A;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.04);
+border-radius: 20px;
+}
+
+.expendies input[type='number']{
+width: 200px;
+height: 40px;
+background: #44394A;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.04);
+border-radius: 20px;
+}
+
+.expendies input[type='submit']{
+width: 100px;
+height: 40px;
+color: white;
+text-align: center;
+background: #FD8342;
+border-radius: 20px;
+font-size: 15px;
+}
+
+::-webkit-input-placeholder {
+padding: 10px;
+width: 195px;
+height: 27px;
+font-family: monospace;
+font-style: normal;
+font-weight: normal;
+font-size: 15px;
+line-height: 27px;
+color: #d4cbcb;
+}
+
+.list-Exp{
+width: 100%;
+height: 100%;
+left: 114px;
+top: 611px;
+background: #44394A;
+border-radius: 20px;
+}
+
+.list-Exp h2{
+ font-family: monospace;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: normal;
+  color: #fd8342;
+}
+
+.horiz{
+width: 95%;
+border: 2px solid #CDCDCD;
+}
+
+.list-Exp ul{
+  text-transform: lowercase;
+  text-decoration: none;
+  list-style: none;
+}
+
+.val-item, .val-amount{
+font-family: monospace;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 36px;
+color: #E6E6E6;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+
+.val-amount{
+font-family: monospace;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 36px;
+color: #00DDEB;
+}
+
+.val-amount button{
+color: #FD8342;
+border-color: #FD8342;
+background: #44394A;
+}
